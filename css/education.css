@@ -39,6 +39,18 @@ img {
   }
 }
 
+@keyframes slideLeftReverse {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+}
+
 @keyframes slideRight {
   0% {
     opacity: 0;
@@ -52,7 +64,11 @@ img {
 }
 
 .slide-left {
-  animation: slideLeft 1000ms ease;
+  animation: slideLeft 1000ms ease forwards;
+}
+
+.slide-left-reverse {
+  animation: slideLeftReverse 1000ms ease forwards;
 }
 
 .slide-right {
@@ -279,6 +295,7 @@ img {
 }
 
 .module-container {
+  position: relative;
   width: 100%;
   display: flex;
 }
@@ -363,7 +380,6 @@ img {
 }
 .module-content .video {
   margin: 20px auto;
-  width: 572px;
   height: 286px;
   background-color: #7e7f84;
 }
@@ -427,7 +443,7 @@ img {
 .module-menu {
   padding: 25px;
   width: 405px;
-  min-width: 405px;
+
   height: fit-content;
   background-color: #f4f4f4;
 }
@@ -790,4 +806,84 @@ img {
 .modal-wrapper .modal-container .modal-btn:focus {
   color: #223464;
   background-color: #fff;
+}
+
+.toggle-aside-btn {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0;
+  }
+
+  .course-card {
+    width: calc(50% - 20px);
+  }
+}
+@media (max-width: 768px) {
+  .quality-section {
+    margin: 20px 10px 5px 10px;
+  }
+  .course-card {
+    margin: 10px 0;
+    width: auto;
+  }
+
+  .module-image,
+  .question-img {
+    display: none;
+  }
+
+  .module-content {
+    padding: 10px 0px 20px 0;
+  }
+
+  .module-content .video {
+    width: 100%;
+  }
+
+  .module-menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    transform: translate(100%, 0px);
+  }
+  .module-navigation {
+    margin-top: auto;
+  }
+  .toggle-aside-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    top: 47%;
+    z-index: 20;
+
+    padding: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #223464;
+    border: 1px solid #223464;
+    transition: all 400ms ease;
+  }
+}
+
+@media (min-width: 1310px) {
+  .module-menu {
+    min-width: 405px;
+    animation: slideLeft 1000ms ease both;
+  }
+
+  .module-content .video {
+    width: 572px;
+  }
 }
