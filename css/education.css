@@ -371,7 +371,6 @@ img {
 }
 
 .module-content h2 {
-  margin-bottom: 30px;
   font-weight: 600;
   font-size: 20px;
   line-height: 25px;
@@ -379,9 +378,14 @@ img {
   color: #223464;
 }
 .module-content .video {
+  width: 100%;
   margin: 20px auto;
   height: 286px;
-  background-color: #7e7f84;
+
+  background-color: #c4c4c4;
+  background-image: url("../data/video_play.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .module-content .additional-materials {
@@ -812,6 +816,66 @@ img {
   display: none;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-img-1 {
+  min-width: 100px;
+  width: 100px;
+
+  height: 100px;
+  margin-right: 25px;
+  background-color: #d9d9d9;
+}
+
+.list-img-2 {
+  min-width: 170px;
+  width: 170px;
+  height: 170px;
+  margin-left: 25px;
+
+  background-color: #d9d9d9;
+}
+
+.images-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.list-img-3 {
+  min-width: 208px;
+  width: 208px;
+  height: 208px;
+  margin: 10px;
+
+  background-color: #d9d9d9;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td {
+  height: 60px;
+  text-align: center;
+  border: 1px solid #223464;
+}
+
+@media (max-width: 1366px) {
+  .row {
+    flex-direction: column;
+  }
+  .list-img-1,
+  .list-img-2 {
+    align-self: center;
+    margin: 0;
+  }
+}
+
 @media (max-width: 1024px) {
   .content-wrapper {
     margin-left: 0;
@@ -874,6 +938,11 @@ img {
     background-color: #223464;
     border: 1px solid #223464;
     transition: all 400ms ease;
+  }
+}
+@media (max-width: 420px) {
+  .images-section {
+    justify-content: center;
   }
 }
 
